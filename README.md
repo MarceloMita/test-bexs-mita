@@ -138,7 +138,7 @@ It creates a new edge on the graph.
   Body: ""
 ```
 
-#### [POST] /best-route
+#### [GET] /best-route
 
 It finds the best route between two vertices
 
