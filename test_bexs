@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+CURRENT_DIR = Dir.pwd
+
+def create_routes(file_name)
+  input_file = "#{CURRENT_DIR}/src/input-routes.csv"
+  FileUtils.rm(input_file) if File.exists?(input_file)
+  FileUtils.cp("#{CURRENT_DIR}/#{file_name}", input_file)
+end
+
+command = ARGV[0]
+
+case command
+when 'create_routes'
+  create_routes(ARGV[1])
+when 'test'
+  exec('../test')
+when 'best_routes'
+  exec('ruby ../run_best_route.rb')
+when 'server'
+  exec('ruby ../server.rb')
+else
+  puts "Command not found #{command}"
+end
